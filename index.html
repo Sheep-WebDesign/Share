@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>GitHub Test</title>
+</head>
+<body>
+    <h1>GitHub Test</h1>
+    <div id="app">
+        <p>{{ message }}</p>
+        <button @click="change" style="display: block;">ボタン</button>
+        <input type="text" v-model="message">
+        <p v-if="check">HELLO</p>
+        <button @click="switchbutton" style="display: block;">ボタン</button>
+        <p>編集</p>
+    </div>
+
+    <script>
+        const app = {
+            data() {
+                return {
+                    message: 'test',
+                    check: true,
+                }
+            },
+            methods: {
+                change() {
+                    this.message = 'TEST';
+                },
+                switchbutton() {
+                    this.check = !this.check;
+                }
+            }
+        }
+
+        Vue.createApp(app).mount('#app');
+    </script>
+</body>
+</html>
